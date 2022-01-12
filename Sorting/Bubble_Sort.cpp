@@ -1,36 +1,32 @@
-//Author :- [Arpita_Kumari]
+#include<bits/stdc++.h>
 
-#include <bits/stdc++.h>
 using namespace std;
-
-#define hs ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-typedef long long int ll;
-
-void fileioe()
-{
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    freopen("error.txt","w",stderr);
-    #endif
-}
 
 void solve()
 {
-    
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i=0;i<n;i++)
+        cin>>arr[i];
+    for(int i=0; i<n-1; i++)
+    {
+        for(int j=0; j<n-i-1; j++)
+        {
+            if(arr[j]>arr[j+1])
+            {
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp; 
+            }
+        }
+    }
+    for(int i=0; i<n; i++)
+        cout<<arr[i]<<" ";
 }
 
-int main() 
+int main()
 {
-    hs;
-    fileioe();
-
-    ll t;
-    //t=1;
-    cin>>t;
-    for (int i=0; i<t; i++)
-    {
-        solve();
-    }
+    solve();
     return 0;
 }
