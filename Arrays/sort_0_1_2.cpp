@@ -2,26 +2,28 @@
 
 using namespace std;
 
-void solve(int arr[], int n)
+void solve(vector<int> arr)
 {
-    int a=0, b=0, c=0;
-    for(int i=0; i<n; i++)
+    int low = 0, high = arr.size()-1, mid = 0;
+    while(mid<=high)
     {
-        if(arr[i]==0)
-            a++;
-        else if(arr[i]==1)
-            b++;
+        if(arr[mid] == 0)
+        {
+            swap(arr[low], arr[mid]);
+            mid++;
+            low++;
+        }
+        else if(arr[mid] == 1)
+        {
+            mid++;
+        }
         else
-            c++;
+        {
+            swap(arr[high], arr[mid]);
+            high--;
+        }
     }
-    int i=0;
-    while(a--)
-        arr[i++] = 0;
-    while(b--)
-        arr[i++] = 1;
-    while(c--)
-        arr[i++] = 2;
-    for(int i=0; i<n; i++)
+    for(int i=0; i<arr.size(); i++)
         cout<<arr[i]<<" ";
     cout<<endl;
 }
@@ -30,9 +32,13 @@ int main()
 {
     int n;
     cin>>n;
-    int arr[n];
+    vector<int> arr;
+    int j;
     for(int i=0; i<n; i++)
-        cin>>arr[i];
-    solve(arr, n);
+    {
+        cin>>j;
+        arr.push_back(j);
+    }
+    solve(arr);
     return 0;
 }
