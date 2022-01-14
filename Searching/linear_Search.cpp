@@ -6,7 +6,6 @@ int solve(int arr[], int n)
 {
     int key;
     cin>>key;
-    int flag = 1;
     for(int i=0; i<n; i++)
     {
         if(arr[i] == key)
