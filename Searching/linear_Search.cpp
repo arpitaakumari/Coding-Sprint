@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void solve(int arr[], int n)
+int solve(int arr[], int n)
 {
     int key;
     cin>>key;
@@ -11,14 +11,10 @@ void solve(int arr[], int n)
     {
         if(arr[i] == key)
         {
-            cout<<"YES "<<i;
-            flag = 0;
-            break;
+           return i;
         }
     }
-    if (flag == 1)
-        cout<<"NO";
-    cout<<endl;
+    return -1;
 }
 
 int main()
@@ -30,6 +26,7 @@ int main()
     {
         cin>>arr[i];
     }
-    solve(arr, n);
+    int pos = solve(arr, n);
+    cout<<pos<<endl;
     return 0;
 }
